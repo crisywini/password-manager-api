@@ -13,7 +13,6 @@ public class Account {
     private Long id;
     private String name;
     private String image;
-
     private String user;
     private String password;
     private AccountType accountType;
