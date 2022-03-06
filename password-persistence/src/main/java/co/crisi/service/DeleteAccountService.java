@@ -15,8 +15,7 @@ public class DeleteAccountService {
 
     public boolean run(Account account) {
         validateExistingAccount(account);
-        accountRepository.delete(account);
-        return true;
+        return accountRepository.delete(account);
     }
 
     private void validateExistingAccount(@NonNull Account account) {

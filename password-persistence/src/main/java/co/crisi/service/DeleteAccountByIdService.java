@@ -13,8 +13,7 @@ public class DeleteAccountByIdService {
 
     public boolean run(Long id) {
         validateExistingAccount(id);
-        accountRepository.deleteById(id);
-        return true;
+        return accountRepository.deleteById(id);
     }
 
     private void validateExistingAccount(Long id) {
