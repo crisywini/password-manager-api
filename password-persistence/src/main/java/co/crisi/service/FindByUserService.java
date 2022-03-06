@@ -5,14 +5,14 @@ import co.crisi.port.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
 public class FindByUserService {
     private final AccountRepository accountRepository;
 
-    public Optional<Account> run(String userName) {
+    public List<Account> run(String userName) {
         return accountRepository.findByUser(userName);
     }
 }

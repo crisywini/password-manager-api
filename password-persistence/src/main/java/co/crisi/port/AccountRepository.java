@@ -25,6 +25,6 @@ public interface AccountRepository {
 
     Optional<Account> findByName(String name);
 
-    Optional<Account> findByUser(String user);
+    List<Account> findByUser(String user);
 
 }

@@ -3,10 +3,7 @@ package co.crisi.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -14,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "account")
+@ToString
 public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

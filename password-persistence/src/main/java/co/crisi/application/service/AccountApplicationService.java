@@ -50,7 +50,7 @@ public class AccountApplicationService {
         return existsByIdService.run(id);
     }
 
-    public Optional<Account> findByUserName(String userName) {
+    public List<Account> findByUserName(String userName) {
         return findByUserService.run(userName);
     }
 }

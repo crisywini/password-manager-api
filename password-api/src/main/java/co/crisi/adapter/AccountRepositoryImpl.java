@@ -1,7 +1,11 @@
 package co.crisi.adapter;
 
 import co.crisi.adapter.jparepository.AccountJpaRepository;
+
+import java.util.List;
 import java.util.Optional;
+
+import co.crisi.domain.AccountType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import co.crisi.domain.Account;
@@ -14,31 +18,54 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public boolean save(Account account) {
-        return false;
+        Account saved = accountJpaRepository.save(account);
+        return saved != null;
     }
 
     @Override
     public boolean delete(Account account) {
-        return false;
+        boolean isDeleted = false;
+        accountJpaRepository.delete(account);
+        isDeleted = true;
+        return isDeleted;
     }
 
     @Override
     public boolean deleteById(Long id) {
-        return false;
+        boolean isDeleted = false;
+        accountJpaRepository.deleteById(id);
+        isDeleted = true;
+        return isDeleted;
+    }
+
+    @Override
+    public void deleteAllById(List<Long> ids) {
+        accountJpaRepository.deleteAllById(ids);
+    }
+
+    @Override
+    public List<Account> findByType(AccountType accountType) {
+        return accountJpaRepository.findAccountByAccountType(accountType);
+    }
+
+    @Override
+    public List<Account> findAll() {
+        return accountJpaRepository.findAll();
     }
 
     @Override
     public boolean existsById(Long id) {
-        return false;
+        return accountJpaRepository.existsById(id);
     }
 
     @Override
     public Optional<Account> findByName(String name) {
-        return Optional.empty();
+        return accountJpaRepository.findAccountByName(name);
     }
 
     @Override
-    public Optional<Account> getByUser(String user) {
-        return Optional.empty();
+    public List<Account> findByUser(String user) {
+        return accountJpaRepository.findAccountsByUserName(user);
     }
+
 }
