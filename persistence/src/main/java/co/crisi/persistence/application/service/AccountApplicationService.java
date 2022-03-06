@@ -2,6 +2,7 @@ package co.crisi.persistence.application.service;
 
 import co.crisi.persistence.domain.Account;
 import co.crisi.persistence.service.AddAccountService;
+import co.crisi.persistence.service.DeleteAccountByIdService;
 import co.crisi.persistence.service.DeleteAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,13 +12,17 @@ import org.springframework.stereotype.Service;
 public class AccountApplicationService {
     private final AddAccountService addAccountService;
     private final DeleteAccountService deleteAccountService;
+    private final DeleteAccountByIdService deleteAccountByIdService;
 
     public boolean add(Account account) {
         return addAccountService.run(account);
     }
 
-    public boolean delete(Account account){
+    public boolean delete(Account account) {
         return deleteAccountService.run(account);
     }
 
+    public boolean deleteById(Long id) {
+        return deleteAccountByIdService.run(id);
+    }
 }
