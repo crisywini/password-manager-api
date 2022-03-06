@@ -16,7 +16,7 @@ public enum AccountType {
         this.name = name;
     }
 
-    public AccountType of(String name){
+    public static AccountType of(String name){
         List<String> types = Arrays.stream(AccountType.values())
                 .map(AccountType::name)
                 .collect(Collectors.toList());
