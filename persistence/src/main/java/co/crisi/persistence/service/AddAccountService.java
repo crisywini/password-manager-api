@@ -14,7 +14,7 @@ public class AddAccountService {
     private final AccountRepository accountRepository;
     private static final String EXISTING_ACCOUNT_MESSAGE_TEMPLATE = "The account with name %s already exists";
 
-    public boolean add(Account account) {
+    public boolean run(Account account) {
         validateNonExistenceAccount(account);
         return accountRepository.add(account);
     }

@@ -11,9 +11,9 @@ import java.util.Optional;
 public interface AccountRepository {
     boolean add(Account account);
 
-    boolean remove(Account account);
+    boolean delete(Account account);
 
-    boolean removeById(Long id);
+    boolean deleteById(Long id);
 
     List<Account> getAll();
 
