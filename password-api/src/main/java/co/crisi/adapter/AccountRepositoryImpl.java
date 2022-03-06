@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import co.crisi.domain.AccountType;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import co.crisi.domain.Account;
 import co.crisi.port.AccountRepository;
@@ -15,9 +16,11 @@ import co.crisi.port.AccountRepository;
 @RequiredArgsConstructor
 public class AccountRepositoryImpl implements AccountRepository {
     private final AccountJpaRepository accountJpaRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public boolean save(Account account) {
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
         Account saved = accountJpaRepository.save(account);
         return saved != null;
     }
